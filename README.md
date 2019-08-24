@@ -175,11 +175,11 @@ Therefore, using string interpolation, we can inject Javascript conditional (if/
 
 With that said, here's a quick summary of what's going down.
 
-- Add a button that toggles theme.
+- Add a button that will toggle theme.
 - Create objects that hold the styles for both the light and dark themes.
-- Use the styled-components <ThemeProvider> component to send theme objects to all child components.
+- Use the styled-components `<ThemeProvider>` component to send theme objects to all child components.
 - Change CSS color properties based on recieved theme props to render different colors based on which theme is active.
-- Use React `useState()` hook to toggle theme via button click.
+- Use React's `useState()` hook to toggle theme via button click.
 
 ## Creating a button
 
@@ -326,7 +326,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 ThemeProvider does what it's name implies. You wrap your entire app with the component, and give it a "theme" prop. The theme prop will have a value of whatever theme (object) you set it to.
 
-Once <ThemeProvider> recieves the theme prop, it will _provide_ ALL child styled components with said object _as a prop_. Which means, by having our `<Wrapper>` styled component inside `<ThemeProvider>`, we will be able to access the darkTheme/lightTheme object colors right from our CSS _as props_.
+Once `<ThemeProvider>` recieves the theme prop, it will _provide_ ALL child styled components with said object _as a prop_. Which means, by having our `<Wrapper>` styled component inside `<ThemeProvider>`, we will be able to access the darkTheme/lightTheme object colors right from our CSS _as props_.
 
 So let's wrap all of our JSX in `<ThemeProvider>` and set the theme to `darkTheme` which we've already imported.
 
