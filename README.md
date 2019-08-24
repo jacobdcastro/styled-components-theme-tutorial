@@ -15,7 +15,9 @@ So here, I'm going to explain how to do this with styled-components using the th
 
 Let's add a dark/light theme switch to the create-react-app default index page!
 
-Feel free to follow along.
+You can check out the final version of what we'll make [here](https://nostalgic-perlman-000288.netlify.com/)! The code is also on my Github! See the code [here](https://github.com/jacobdcastro/styled-components-theme-tutorial).
+
+Now let's get started. Feel free to follow along!
 
 ## Getting Started
 
@@ -34,8 +36,6 @@ create-react-app themes
 ```
 
 Once create-react-app finishes, run `npm start` so you can see the new site running on the development server at localhost:3000/.
-
-<!-- ! GIF OF RUNNING SITE -->
 
 Let's jump into the /themes directory and get started.
 
@@ -578,3 +578,23 @@ transition: 0.35s;
 Now toggle the theme and check it out!
 
 ## Recap
+
+We officially added a dark/light theme toggle button to the default create-react-app page! Now you can translate these concepts to your own project for convenient theme switching.
+
+We:
+
+- Installed styled-components to a React app.
+- Added a button that toggles the theme.
+- Created theme objects that holds the data for styles.
+- Made our own `<Wrapper>` styled component.
+- Used the styled-components `<ThemeProvider>` component to send the theme styles to our Wrapper component.
+- With React hooks, used component state to establish which theme is active.
+- Connected our button to the state to toggle the theme!
+
+Easy right? It's pretty fun.
+
+Again, you can view the [code on Github](https://github.com/jacobdcastro/styled-components-theme-tutorial) or my final version on the web [here](https://nostalgic-perlman-000288.netlify.com/)!
+
+Thank you so much for checking this out. And I hope this helps on your own projects!!!
+
+Much love.

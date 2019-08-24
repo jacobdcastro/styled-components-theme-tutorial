@@ -1,5 +1,6 @@
 ---
-title: 'How To Use Themes with styled-components'
+Title: 'How To Use Themes with styled-components'
+Date: '8/23/2019'
 ---
 
 # Creating a dark and light theme switch with styled-components themes
@@ -14,7 +15,9 @@ So here, I'm going to explain how to do this with styled-components using the th
 
 Let's add a dark/light theme switch to the create-react-app default index page!
 
-Feel free to follow along.
+You can check out the final version of what we'll make [here](https://nostalgic-perlman-000288.netlify.com/)! The code is also on my Github! See the code [here](https://github.com/jacobdcastro/styled-components-theme-tutorial).
+
+Now let's get started. Feel free to follow along!
 
 ## Getting Started
 
@@ -33,8 +36,6 @@ create-react-app themes
 ```
 
 Once create-react-app finishes, run `npm start` so you can see the new site running on the development server at localhost:3000/.
-
-<!-- ! GIF OF RUNNING SITE -->
 
 Let's jump into the /themes directory and get started.
 
@@ -174,11 +175,11 @@ Therefore, using string interpolation, we can inject Javascript conditional (if/
 
 With that said, here's a quick summary of what's going down.
 
-- Add a button that toggles theme.
+- Add a button that will toggle theme.
 - Create objects that hold the styles for both the light and dark themes.
-- Use the styled-components <ThemeProvider> component to send theme objects to all child components.
+- Use the styled-components `<ThemeProvider>` component to send theme objects to all child components.
 - Change CSS color properties based on recieved theme props to render different colors based on which theme is active.
-- Use React `useState()` hook to toggle theme via button click.
+- Use React's `useState()` hook to toggle theme via button click.
 
 ## Creating a button
 
@@ -325,7 +326,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 ThemeProvider does what it's name implies. You wrap your entire app with the component, and give it a "theme" prop. The theme prop will have a value of whatever theme (object) you set it to.
 
-Once <ThemeProvider> recieves the theme prop, it will _provide_ ALL child styled components with said object _as a prop_. Which means, by having our `<Wrapper>` styled component inside `<ThemeProvider>`, we will be able to access the darkTheme/lightTheme object colors right from our CSS _as props_.
+Once `<ThemeProvider>` recieves the theme prop, it will _provide_ ALL child styled components with said object _as a prop_. Which means, by having our `<Wrapper>` styled component inside `<ThemeProvider>`, we will be able to access the darkTheme/lightTheme object colors right from our CSS _as props_.
 
 So let's wrap all of our JSX in `<ThemeProvider>` and set the theme to `darkTheme` which we've already imported.
 
@@ -577,3 +578,23 @@ transition: 0.35s;
 Now toggle the theme and check it out!
 
 ## Recap
+
+We officially added a dark/light theme toggle button to the default create-react-app page! Now you can translate these concepts to your own project for convenient theme switching.
+
+We:
+
+- Installed styled-components to a React app.
+- Added a button that toggles the theme.
+- Created theme objects that holds the data for styles.
+- Made our own `<Wrapper>` styled component.
+- Used the styled-components `<ThemeProvider>` component to send the theme styles to our Wrapper component.
+- With React hooks, used component state to establish which theme is active.
+- Connected our button to the state to toggle the theme!
+
+Easy right? It's pretty fun.
+
+Again, you can view the [code on Github](https://github.com/jacobdcastro/styled-components-theme-tutorial) or my final version on the web [here](https://nostalgic-perlman-000288.netlify.com/)!
+
+Thank you so much for checking this out. And I hope this helps on your own projects!!!
+
+Much love.
