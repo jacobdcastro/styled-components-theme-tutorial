@@ -1,5 +1,6 @@
 ---
-title: 'How To Use Themes with styled-components'
+Title: 'How To Use Themes with styled-components'
+Date: '8/23/2019'
 ---
 
 # Creating a dark and light theme switch with styled-components themes
