@@ -25,13 +25,13 @@ Using create-react-app, let's create a new project called 'themes'.
 
 If you don't have create-react-app installed run this command:
 
-```
+```bash
 npx create-react-app themes
 ```
 
 If you already have it installed, simply run:
 
-```
+```bash
 create-react-app themes
 ```
 
@@ -43,7 +43,7 @@ Let's jump into the /themes directory and get started.
 
 Time to bring the styled-components package in!
 
-```
+```bash
 npm install styled-components
 ```
 
@@ -51,7 +51,7 @@ Once installed, let's open up `src/App.js` where all of the app code is.
 
 <!-- App.js -->
 
-```
+```javascript{numberLines: true}
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -78,28 +78,25 @@ function App() {
 }
 
 export default App;
-
 ```
 
 In line 3, there's an `App.css` file being imported for the styles. Since we're using styled-components, we'll copy those styles into a styled component. But first, let's create one.
 
 We need to import the library into the file so we can use it.
 
-```
+```bash
 import styled from 'styled-components';
 ```
 
 Just above the App component and below the `./App.css` import, lets make an empty styled `div` component. This will be the wrapper, replacing the current div that has the "App" class on it on line 8. We'll call the styled component `Wrapper`.
 
-```
-
+```javascript
 const Wrapper = styled.div``;
-
 ```
 
 All of our styles will go inside the backticks. So let's copy those from `App.css` and paste it all in the new component we created. Once the styles are in the Wrapper component, we'll _slap_ it in our JSX by replacing the `div` tags with the newly created `Wrapper` component. Then remove the `./App.css` import statement and delete the CSS file entirely!
 
-```
+```javascript
 import React from 'react';
 import logo from './logo.svg';
 import styled from 'styled-components';
@@ -162,7 +159,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 Now, styled-components is officially styling the app! If you check localhost:3000/ in your browser, there should be no changes to the webpage whatsoever.
@@ -185,7 +181,7 @@ With that said, here's a quick summary of what's going down.
 
 In JSX, create a `<button>Toggle theme</button>` just below the 'Learn React' link. Then we'll add basic styles in the `<Wrapper>` component. Feel free to copy the styles in.
 
-```
+```javascript
 import React from 'react';
 import logo from './logo.svg';
 import styled from 'styled-components';
@@ -268,7 +264,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 Note: The button says "light theme" because the theme is currently dark. The button text will be dynamic to change depending on which theme is active.
@@ -281,18 +276,17 @@ Now that the button is added to the UI, let's write the theme objects! We'll cre
 
 Next, let's create two empty objects called `darkTheme` and `lightTheme` and export them individually with a named export statement.
 
-```
+```javascript
 const darkTheme = {};
 
 const lightTheme = {};
 
 export { darkTheme, lightTheme };
-
 ```
 
 Since the default app at localhost:3000/ has a dark background, we'll declare those styles as the dark theme. Copying the same colors in the `.App-header` class in `App.js`, let's set the `darkTheme` object values. While we're at it, we'll set the `lightTheme` object to colors I've decided look pretty cool.
 
-```
+```javascript
 const darkTheme = {
   bgColor: '#282c34',
   textColor: 'white',
@@ -306,21 +300,19 @@ const lightTheme = {
 };
 
 export { darkTheme, lightTheme };
-
 ```
 
 Next, we'll import these two themes into `App.js` under the `styled` import on line 4 like so:
 
-```
+```javascript
 import { darkTheme, lightTheme } from './themes';
-
 ```
 
 ### Using ThemeProvider
 
 Once imported, we'll use the `<ThemeProvider>` component that comes with the styled-components library. Edit line 3 to import `ThemeProvider` like this:
 
-```
+```javascript
 import styled, { ThemeProvider } from 'styled-components';
 ```
 
@@ -330,7 +322,7 @@ Once `<ThemeProvider>` recieves the theme prop, it will _provide_ ALL child styl
 
 So let's wrap all of our JSX in `<ThemeProvider>` and set the theme to `darkTheme` which we've already imported.
 
-```
+```javascript
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
@@ -364,7 +356,7 @@ Remembering that our CSS is being written inside of backticks, we can use string
 
 On line 18, let's set the background color to the `bgColor` value set in our `darkTheme` object. We need to write a function taking in "props", and simply return the value from `props.theme` that was provided by `<ThemeProvider>`. In this case, we'll bring in the `bgColor` we declared in themes.js.
 
-```
+```CSS
 .App-header {
   background-color: ${props => props.theme.bgColor};
   min-height: 100vh;
@@ -386,7 +378,7 @@ Now we can replace the text colors on lines 25 and 42 by writing `${props => pro
 
 When all is said and done, the Wrapper component styles should have Javascript among it like this:
 
-```
+```javascript
 const Wrapper = styled.div`
   .App {
     text-align: center;
@@ -463,7 +455,7 @@ But if you'd like to follow along, let's jump in!
 
 Since we're using React's new `useState()` hook, we need to import it from React on line 1.
 
-```
+```javascript
 import React, { useState } from 'react';
 ```
 
@@ -471,7 +463,7 @@ Then, just above the App component's return statement on line 62, let's add the 
 
 It'll be a simple boolean called `isDarkTheme`, with a default state of true. Toggling it to false will enable the light theme.
 
-```
+```javascript
 function App() {
   let [isDarkTheme, toggleTheme] = useState(true);
 
@@ -509,16 +501,14 @@ We'll do so with a ternerary operator. So if `isDarkTheme` is true, then it will
 
 So edit line 65 like so:
 
-```
+```javascript
 <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
 ```
 
 We'll do the same thing with the button text while we're at it. Editing the button tag like this:
 
-```
-<button>
-  {isDarkTheme ? 'LIGHT' : 'DARK'} THEME
-</button>
+```jsx
+<button>{isDarkTheme ? 'LIGHT' : 'DARK'} THEME</button>
 ```
 
 ### Using Button to Change State
@@ -531,7 +521,7 @@ If we were to put `toggleTheme` right in the button tag, React would get stuck i
 
 So we'll create an `action` function just above the return statement, and then add the action to the onClick attribute like so:
 
-```
+```javascript
 function App() {
   let [isDarkTheme, toggleTheme] = useState(true);
 
